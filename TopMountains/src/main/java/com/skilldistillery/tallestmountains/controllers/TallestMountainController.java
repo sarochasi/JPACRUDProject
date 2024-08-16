@@ -1,11 +1,14 @@
 package com.skilldistillery.tallestmountains.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.tallestmountains.dao.TallestMountainDAO;
+import com.skilldistillery.tallestmountains.entities.TallestMountain;
 
 @Controller
 public class TallestMountainController {
@@ -16,6 +19,8 @@ public class TallestMountainController {
 	
 	@RequestMapping(path = {"/", "home.do"})
 	public String home(Model model) {
+		List<TallestMountain> allMount = tallMount.findAll();
+		model.addAttribute("mountains", allMount);
 		return "home";
 	}
 	
