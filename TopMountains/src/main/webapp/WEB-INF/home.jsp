@@ -10,5 +10,6 @@
 
 <h1>Highest Mountains</h1>
 
+<p>${mountains}</p>
 </body>
 </html>
