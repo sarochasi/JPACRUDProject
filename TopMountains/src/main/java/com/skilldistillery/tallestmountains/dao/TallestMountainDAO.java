@@ -8,7 +8,7 @@ public interface TallestMountainDAO {
 	TallestMountain findById(int id);
 	List<TallestMountain> findAll();
 	TallestMountain create(TallestMountain newMountain);
-	void update();
-	boolean deleteById(int mountId);
+	TallestMountain update(int id, TallestMountain mountain);
+	boolean deleteById(int id);
 
 }

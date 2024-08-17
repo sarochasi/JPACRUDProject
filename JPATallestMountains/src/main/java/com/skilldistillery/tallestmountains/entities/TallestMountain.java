@@ -22,57 +22,23 @@ public class TallestMountain {
 	private String country;
 
 	private String description;
-	
+
 	@Column(name = "image_url")
 	private String imageUrl;
-	
+
 	@Column(name = "height_in_metres")
 	private int height;
-	
+
 	private Double latitude;
-	
+
 	private Double longitude;
-	
+
 	@Column(name = "first_ascent")
 	private LocalDate yearFound;
-	
-	
+
 	public TallestMountain() {
 		super();
 	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	public Double getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(Double latitude) {
-		this.latitude = latitude;
-	}
-
-	public Double getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(Double longitude) {
-		this.longitude = longitude;
-	}
-
-	public LocalDate getYearFound() {
-		return yearFound;
-	}
-
-	public void setYearFound(LocalDate yearFound) {
-		this.yearFound = yearFound;
-	}
-
 
 	public int getId() {
 		return id;
@@ -114,13 +80,43 @@ public class TallestMountain {
 		this.imageUrl = imageUrl;
 	}
 
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public LocalDate getYearFound() {
+		return yearFound;
+	}
+
+	public void setYearFound(LocalDate yearFound) {
+		this.yearFound = yearFound;
+	}
+
 	@Override
 	public String toString() {
 		return "TallestMountain [id=" + id + ", name=" + name + ", country=" + country + ", description=" + description
 				+ ", imageUrl=" + imageUrl + ", height=" + height + ", latitude=" + latitude + ", longitude="
 				+ longitude + ", yearFound=" + yearFound + "]";
 	}
-
-
 
 }
