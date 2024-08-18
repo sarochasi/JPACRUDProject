@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
+<style>
+h3{text-align: center;}
+</style>
 <head>
 <meta charset="UTF-8">
 <title>Peaks List</title>
@@ -15,43 +18,52 @@
 
 <a href="home.do">Back to Home</a>
 <body>
-<br>
-<br>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Mountain name</th>
-      <th scope="col">Height (m)</th>
-      <th scope="col">Latitude</th>
-      <th scope="col">Longitude</th>
-      <th scope="col">First ascent</th>
-      <th scope="col">Country</th>
-      <th scope="col">Photo</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-  <c:forEach var="mountain" items="${mountains}">
-    <tr>
-    
-      <td>${mountain.id }</td>
-      <td>${mountain.name }</td>
-      <td>${mountain.height }</td>
-      <td>${mountain.latitude }</td>
-      <td>${mountain.longitude }</td>
-      <td>${mountain.yearFound }</td>
-      <td>${mountain.country }</td>
-      <td><img src="${mountain.imageUrl }"  width="70" height="70"></td>
-      <td>${mountain.description }</td>
-    </tr>
-    </c:forEach>
-  </tbody>
-</table>
+	<br>
+	<br>
+	<c:choose>
+		<c:when test="${!empty mountains }">
+		<h3>List of Eight-Thousanders</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Mountain name</th>
+						<th scope="col">Height (m)</th>
+						<th scope="col">Latitude</th>
+						<th scope="col">Longitude</th>
+						<th scope="col">First ascent</th>
+						<th scope="col">Country</th>
+						<th scope="col">Photo</th>
+						<th scope="col">Description</th>
+					</tr>
+				</thead>
+				<tbody>
 
-<a href="home.do">Back to Home</a>
-<br><br>
+					<c:forEach var="mountain" items="${mountains}">
+						<tr>
+
+							<td>${mountain.id }</td>
+							<td>${mountain.name }</td>
+							<td>${mountain.height }</td>
+							<td>${mountain.latitude }</td>
+							<td>${mountain.longitude }</td>
+							<td>${mountain.yearFound }</td>
+							<td>${mountain.country }</td>
+							<td><img src="${mountain.imageUrl }" width="70" height="70"></td>
+							<td>${mountain.description }</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</c:when>
+		<c:otherwise>
+			<p>${errorMsg }</p>
+		</c:otherwise>
+	</c:choose>
+
+	<a href="home.do">Back to Home</a>
+	<br>
+	<br>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

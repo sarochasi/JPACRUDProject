@@ -30,6 +30,7 @@
 					</form>
 					<br>
 					<a href="getMountainList.do" class="btn active">List of Eight-Thousanders</a>
+					<a href="newMountainForm.do" class="btn active">Add new Mountain</a>
 							
 				</div>
 
@@ -61,6 +62,11 @@
                   <form action="updateForm.do" method="GET">
                 		<input type="hidden" name="mountainId" value="${mountain.id}"/>
                   			<button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </form>
+                  
+                  <form action="DeleteMountain.do" method="POST">
+                		<input type="hidden" name="mountainId" value="${mountain.id}"/>
+                  			<button type="submit" class="btn btn-sm btn-outline-secondary">Delete</button>
                   </form>
                 </div>
                 

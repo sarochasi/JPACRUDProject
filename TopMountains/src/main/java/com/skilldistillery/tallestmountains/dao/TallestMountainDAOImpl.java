@@ -62,7 +62,8 @@ public class TallestMountainDAOImpl implements TallestMountainDAO{
 	@Override
 	public List<TallestMountain> findAll() {
 		String jpql = "SELECT mount FROM TallestMountain mount";
-		return em.createQuery(jpql, TallestMountain.class).getResultList();
+		List<TallestMountain> result = em.createQuery(jpql, TallestMountain.class).getResultList();
+		return result;
 	}
 
 	@Override

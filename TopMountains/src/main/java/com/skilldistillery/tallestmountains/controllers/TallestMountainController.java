@@ -20,11 +20,6 @@ public class TallestMountainController {
 	@Autowired
 	private TallestMountainDAO tallMount;
 
-//	@RequestMapping(path = {"/", "home.do"})
-//	public String index() {
-//		return "home";
-//	}
-
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model) {
 		List<TallestMountain> allMount = tallMount.findAll();
@@ -35,6 +30,7 @@ public class TallestMountainController {
 	@RequestMapping(path="getMountainList.do", method = RequestMethod.GET)
 	public ModelAndView showList(Model modle) {
 		ModelAndView mv = new ModelAndView();
+		try {
 		List<TallestMountain> allMount = tallMount.findAll();
 		if(allMount.isEmpty()) {
 			mv.addObject("errorMsg", "No mountain on the List");
@@ -42,6 +38,12 @@ public class TallestMountainController {
 		}else {
 			mv.addObject("mountains", allMount);
 			mv.setViewName("showList");
+		}
+		
+		}catch (Exception e) {
+			 mv.addObject("errorMsg", "An error occurred while retrieving the mountain list.");
+		        mv.setViewName("showList"); 
+		        e.printStackTrace();
 		}
 		return mv;
 	}
@@ -57,7 +59,7 @@ public class TallestMountainController {
 			} else {
 				TallestMountain foundMountain = tallMount.findById(mountainId);
 				if(foundMountain == null) {
-					mv.addObject("errorMsg", "The mountain with ID of: " + mountainId + " was not found.");
+					mv.addObject("errorMsg", "The mountain with ID " + mountainId + " was not found.");
 					
 				}else {
 					
@@ -106,6 +108,54 @@ public class TallestMountainController {
 		}
 		return mv;
 
+	}
+	
+	@RequestMapping(path = "DeleteMountain.do", method = RequestMethod.POST)
+	public ModelAndView deleteMountain(@RequestParam("mountainId") int mountainId) {
+		
+		ModelAndView mv = new ModelAndView();
+		TallestMountain mountain = tallMount.findById(mountainId);
+		
+		if(mountain == null) {
+			mv.addObject("errorMsg", "Mountain not found with ID: " + mountainId);
+			mv.setViewName("error");
+		}else {
+			boolean deleted = tallMount.deleteById(mountainId);
+			if(!deleted) {
+				mv.addObject("errorMsg", "Failed to delete the mountain");
+				mv.setViewName("error");
+			}else {
+				
+				mv.addObject("successMsg", "Mountain deleted successfully");
+				List<TallestMountain> allMount = tallMount.findAll();
+				mv.setViewName("delete");
+			}
+		}
+		return mv;
+		
+	}
+	
+	@RequestMapping(path = "newMountainForm.do", method = RequestMethod.GET)
+	public ModelAndView showNewMountainForm() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("newMountainForm");
+		return mv;
+	}
+	
+	@RequestMapping(path = "addMountain.do", method = RequestMethod.POST)
+	public ModelAndView addMountain(@ModelAttribute("mountain") TallestMountain mountain) {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		try {
+			TallestMountain newMountain = tallMount.create(mountain);
+			mv.addObject("mountain", newMountain);
+			mv.setViewName("show");
+		}catch (Exception e) {
+			mv.addObject("error", "Failed to add the mountain");
+			mv.setViewName("error");
+		}
+		return mv;
 	}
 	
 	
