@@ -26,10 +26,10 @@
 					
 					<form action="getMountain.do" method="GET">
 						Enter Mountain ID: <input type="number" name="mountainId" /> <input
-							type="submit" value="ShowMountain">
+							type="submit" value="Show Mountain">
 					</form>
 					<br>
-					<a href="#" class="btn btn-primary my-2">See all Peaks</a>
+					<a href="#" class="btn active">See all Peaks</a>
 							
 				</div>
 
@@ -52,7 +52,12 @@
               <p>${mountain.country}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                
+                	<form action="getMountain.do" method="GET">
+                		<input type="hidden" name="mountainId" value="${mountain.id}"/>
+                			<button type="submit" class="btn btn-sm btn-outline-secondary" >View</button>
+                	</form>
+                  
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 
