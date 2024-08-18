@@ -1,6 +1,7 @@
 package com.skilldistillery.tallestmountains.entities;
 
 import java.time.LocalDate;
+import java.time.Year;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,7 +35,7 @@ public class TallestMountain {
 	private Double longitude;
 
 	@Column(name = "first_ascent")
-	private LocalDate yearFound;
+	private Year yearFound;
 
 	public TallestMountain() {
 		super();
@@ -104,11 +105,11 @@ public class TallestMountain {
 		this.longitude = longitude;
 	}
 
-	public LocalDate getYearFound() {
+	public Year getYearFound() {
 		return yearFound;
 	}
 
-	public void setYearFound(LocalDate yearFound) {
+	public void setYearFound(Year yearFound) {
 		this.yearFound = yearFound;
 	}
 

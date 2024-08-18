@@ -15,15 +15,12 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class TallestMountainDAOImpl implements TallestMountainDAO{
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPATallestMountains");
 	
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
 	public TallestMountain update(int id, TallestMountain mountain) {
-		em = emf.createEntityManager();
-		em.getTransaction().begin();
 		
 		TallestMountain managedMountain = em.find(TallestMountain.class, id);
 		 if(managedMountain != null) {
@@ -48,8 +45,6 @@ public class TallestMountainDAOImpl implements TallestMountainDAO{
 	public boolean deleteById(int id) {
 		
 		boolean deleted = false;
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
 		
 		TallestMountain managedMountain = em.find(TallestMountain.class, id);
 		
@@ -57,7 +52,6 @@ public class TallestMountainDAOImpl implements TallestMountainDAO{
 			em.remove(managedMountain);
 			deleted = true;
 		}
-		em.getTransaction().commit();
 				
 		return deleted;
 	}
@@ -75,13 +69,8 @@ public class TallestMountainDAOImpl implements TallestMountainDAO{
 
 	@Override
 	public TallestMountain create(TallestMountain newMountain) {
-		em = emf.createEntityManager();
-		
-		em.getTransaction().begin();
+	
 		em.persist(newMountain);
-		em.flush();
-		em.getTransaction().commit();
-		em.close();
 		return newMountain;
 	}
 	
