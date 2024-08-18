@@ -58,8 +58,8 @@ h2 {
 				<p>
 					<strong>First ascent: </strong>${mountain.yearFound }</p>
 				<p>
-					<strong>Coordinate: </strong>${mountain.latitude },
-					${mountain.longitude }
+					<strong>Coordinate: </strong><a href="https://www.google.com/maps/@${mountain.latitude },${mountain.longitude },15z?entry=ttu" target="_blank">${mountain.latitude },
+					${mountain.longitude }</a>
 				</p>
 				<p>
 					<strong>Description: </strong>${mountain.description }</p>
