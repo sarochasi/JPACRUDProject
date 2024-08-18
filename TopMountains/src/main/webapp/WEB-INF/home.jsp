@@ -29,7 +29,7 @@
 							type="submit" value="Show Mountain">
 					</form>
 					<br>
-					<a href="#" class="btn active">See all Peaks</a>
+					<a href="getMountainList.do" class="btn active">See all Peaks</a>
 							
 				</div>
 
@@ -58,7 +58,10 @@
                 			<button type="submit" class="btn btn-sm btn-outline-secondary" >View</button>
                 	</form>
                   
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <form action="updateForm.do" method="GET">
+                		<input type="hidden" name="mountainId" value="${mountain.id}"/>
+                  			<button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  </form>
                 </div>
                 
               </div>

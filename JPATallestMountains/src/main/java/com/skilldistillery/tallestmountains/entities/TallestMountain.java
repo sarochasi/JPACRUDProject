@@ -22,20 +22,20 @@ public class TallestMountain {
 
 	private String country;
 
-	private String description;
-
-	@Column(name = "image_url")
-	private String imageUrl;
-
 	@Column(name = "height_in_metres")
 	private int height;
+	
+	@Column(name = "first_ascent")
+	private Year yearFound;
 
 	private Double latitude;
 
 	private Double longitude;
 
-	@Column(name = "first_ascent")
-	private Year yearFound;
+	private String description;
+	
+	@Column(name = "image_url")
+	private String imageUrl;
 
 	public TallestMountain() {
 		super();

@@ -31,6 +31,20 @@ public class TallestMountainController {
 		model.addAttribute("mountains", allMount);
 		return "home";
 	}
+	
+	@RequestMapping(path="getMountainList.do", method = RequestMethod.GET)
+	public ModelAndView showList(Model modle) {
+		ModelAndView mv = new ModelAndView();
+		List<TallestMountain> allMount = tallMount.findAll();
+		if(allMount.isEmpty()) {
+			mv.addObject("errorMsg", "No mountain on the List");
+			mv.setViewName("showList");
+		}else {
+			mv.addObject("mountains", allMount);
+			mv.setViewName("showList");
+		}
+		return mv;
+	}
 
 	@RequestMapping(path = "getMountain.do", method = RequestMethod.GET)
 	public ModelAndView findById(@RequestParam(value = "mountainId", required = false) Integer mountainId) {
@@ -59,8 +73,23 @@ public class TallestMountainController {
 		return mv;
 	}
 
+	@RequestMapping(path = "updateForm.do", method = RequestMethod.GET)
+	public ModelAndView showUpdateForm(@RequestParam("mountainId") int id) {
+		ModelAndView mv = new ModelAndView();
+		TallestMountain mountain = tallMount.findById(id);
+		if(mountain != null) {
+			mv.addObject("mountain", mountain);
+			mv.setViewName("updateForm");
+		}else {
+			mv.addObject("errorMsg", "Mountain not found");
+			mv.setViewName("updateForm");
+		}
+		return mv;
+		
+	}
+	
 	@RequestMapping(path = "updateMountain.do", method = RequestMethod.POST)
-	public ModelAndView updateMountain(TallestMountain mountain) {
+	public ModelAndView updateMountain(@ModelAttribute("mountain") TallestMountain mountain) {
 		ModelAndView mv = new ModelAndView();
 
 		try {
@@ -78,6 +107,7 @@ public class TallestMountainController {
 		return mv;
 
 	}
+	
 	
 	
 
