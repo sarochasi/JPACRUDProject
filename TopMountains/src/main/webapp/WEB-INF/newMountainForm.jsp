@@ -12,6 +12,9 @@
 	crossorigin="anonymous">
 </head>
 <body>
+<a href="home.do">Back to Home</a>
+
+<br>
 
 	<form action="addMountain.do" method="POST" class="container mt-4">
 

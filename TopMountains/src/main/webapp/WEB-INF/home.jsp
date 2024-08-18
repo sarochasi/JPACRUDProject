@@ -24,13 +24,16 @@
 						elevation, location, and climbing history.</p>
 						
 					
+					<br>
+					<a href="getMountainList.do" class="btn active">List of Eight-Thousanders</a>
+					<br><br>
+					<a href="newMountainForm.do" class="btn active">Add new Mountain</a>
+					<br><br>
 					<form action="getMountain.do" method="GET">
 						Enter Mountain ID: <input type="number" name="mountainId" /> <input
 							type="submit" value="Search Mountain">
 					</form>
-					<br>
-					<a href="getMountainList.do" class="btn active">List of Eight-Thousanders</a>
-					<a href="newMountainForm.do" class="btn active">Add new Mountain</a>
+					
 							
 				</div>
 

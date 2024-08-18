@@ -7,7 +7,7 @@
 <title>Error</title>
 </head>
 <body>
-<h1>Error Page</h1>
+<h1>Error</h1>
     <p><strong>${error}</strong></p>
     <a href="home.do">Back to Home</a>
 </body>
