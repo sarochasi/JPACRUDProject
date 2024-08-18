@@ -35,9 +35,7 @@ public class TallestMountainDAOImpl implements TallestMountainDAO{
 			 
 		 }
 		 
-		 em.getTransaction().commit();
-		 em.close();
-		return mountain;
+		return managedMountain;
 		
 	}
 
