@@ -9,6 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+<a href="home.do">Back to Home</a>
 <div class="col-lg-8 col-md-8 mx-auto">
 <h3>Editing mountain info</h3>
 <br>
@@ -41,12 +42,12 @@
 				</div>
 				<div class="mb-3">
 					<label for="latitude" class="form-label">Latitude</label> <input
-						type="number" class="form-control" id="latitude" name="latitude"
+						type="text" class="form-control" id="latitude" name="latitude"
 						value="${mountain.latitude}">
 				</div>
 				<div class="mb-3">
 					<label for="longitude" class="form-label">Longitude</label> <input
-						type="number" class="form-control" id="longitude" name="longitude"
+						type="text" class="form-control" id="longitude" name="longitude"
 						value="${mountain.longitude}">
 				</div>
 				<div class="mb-3">

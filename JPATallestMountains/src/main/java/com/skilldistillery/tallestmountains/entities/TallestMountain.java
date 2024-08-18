@@ -28,9 +28,9 @@ public class TallestMountain {
 	@Column(name = "first_ascent")
 	private Year yearFound;
 
-	private Double latitude;
+	private String latitude;
 
-	private Double longitude;
+	private String longitude;
 
 	private String description;
 	
@@ -89,19 +89,19 @@ public class TallestMountain {
 		this.height = height;
 	}
 
-	public Double getLatitude() {
+	public String getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Double latitude) {
+	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 
-	public Double getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Double longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 

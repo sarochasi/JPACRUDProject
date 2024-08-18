@@ -26,10 +26,10 @@
 					
 					<form action="getMountain.do" method="GET">
 						Enter Mountain ID: <input type="number" name="mountainId" /> <input
-							type="submit" value="Show Mountain">
+							type="submit" value="Search Mountain">
 					</form>
 					<br>
-					<a href="getMountainList.do" class="btn active">See all Peaks</a>
+					<a href="getMountainList.do" class="btn active">List of Eight-Thousanders</a>
 							
 				</div>
 

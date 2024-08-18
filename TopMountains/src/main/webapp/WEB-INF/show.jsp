@@ -3,6 +3,9 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
+<style>
+h2{text-align: center;}
+</style>
 <head>
 <meta charset="UTF-8">
 <title>Mountain result</title>
@@ -13,12 +16,13 @@
 	<c:choose>
 	<c:when test="${! empty mountain}">
 	<div>
-	<p><strong>${mountain.name }</strong></p>
-	<p>${mountain.country }</p>
-	<p>${mountain.height }</p>
-	<p>${mountain.yearFound }</p>
-	<p>${mountain.description }</p>
-	<p><img src="${mountain.imageUrl}"/></p>
+	<h2><strong>${mountain.name }</strong></h2>
+	<p><strong>Country: </strong>${mountain.country }</p>
+	<p><strong>Height: </strong>${mountain.height }</p>
+	<p><strong>First ascent: </strong>${mountain.yearFound }</p>
+	<p><strong>Coordinate: </strong>${mountain.latitude }, ${mountain.longitude }</p>
+	<p><strong>Description: </strong>${mountain.description }</p>
+	<center><img src="${mountain.imageUrl}" height="500" width="700"  /></center>
 	
 	</div>
 	
